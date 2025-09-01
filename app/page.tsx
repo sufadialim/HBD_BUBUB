@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect,useState } from "react"
 
 export default function BirthdayPage() {
   const [showEnvelope, setShowEnvelope] = useState(true)
@@ -10,6 +10,8 @@ export default function BirthdayPage() {
   const [selectedFrame, setSelectedFrame] = useState<number | null>(null)
   const [showBalloonPop, setShowBalloonPop] = useState(false)
   const [showMemoryGallery, setShowMemoryGallery] = useState(false)
+  const [hearts, setHearts] = useState<{left:string, top:string, size:string, delay:string}[]>([]);
+  const [sparkles, setSparkles] = useState<{ left: string; top: string; delay: string }[]>([]);
 
     const openEnvelope = () => {
     setEnvelopeOpening(true)
@@ -37,6 +39,23 @@ export default function BirthdayPage() {
     setShowMemoryGallery(false)
     setShowBalloonPop(false)
   }
+
+    useEffect(() => {
+    const generated = Array.from({ length: 20 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: `${15 + Math.random() * 20}px`,
+      delay: `${Math.random() * 3}s`,
+    }));
+    const generatedSparkle = Array.from({length: 15}).map(()=>({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 10}s`,
+    }));
+    setHearts(generated);
+    setSparkles(generatedSparkle);
+  }, []);
+
 
   // const photoFrames = [
   //   { id: 1, name: "Teman Terbaik", placeholder: "/happy-friend-portrait.png" },
@@ -74,15 +93,15 @@ export default function BirthdayPage() {
       <div className="min-h-screen bg-gradient-to-br from-pink-100 via-red-50 to-rose-100 flex items-center justify-center relative overflow-hidden">
         {/* Floating Hearts Background */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-pink-300 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                fontSize: `${12 + Math.random() * 20}px`,
-                animationDelay: `${Math.random() * 3}s`,
+      {hearts.map((h, i) => (
+        <div
+          key={i}
+          className="absolute text-pink-300 animate-pulse"
+          style={{
+            left: h.left,
+            top: h.top,
+            fontSize: h.size,
+            animationDelay: h.delay,
               }}
             >
               💕
@@ -139,17 +158,17 @@ export default function BirthdayPage() {
 
         {/* Sparkle Effects */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-yellow-400 animate-ping"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 10}s`,
-                fontSize: "12px",
-              }}
-            >
+      {sparkles.map((s, i) => (
+        <div
+          key={i}
+          className="absolute text-yellow-400 animate-ping"
+          style={{
+            left: s.left,
+            top: s.top,
+            animationDelay: s.delay,
+            fontSize: "12px",
+          }}
+        >
               ✨
             </div>
           ))}
