@@ -7,9 +7,9 @@ export default function BirthdayPage() {
   const [envelopeOpening, setEnvelopeOpening] = useState(false)
   const [candlesBlown, setCandlesBlown] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
-  const [selectedFrame, setSelectedFrame] = useState<number | null>(null)
   const [showBalloonPop, setShowBalloonPop] = useState(false)
   const [showMemoryGallery, setShowMemoryGallery] = useState(false)
+  const [unmutedVideo, setUnmutedVideo] = useState<number | null>(null);
   const [hearts, setHearts] = useState<{left:string, top:string, size:string, delay:string}[]>([]);
   const [sparkles, setSparkles] = useState<{ left: string; top: string; delay: string }[]>([]);
 
@@ -26,7 +26,7 @@ export default function BirthdayPage() {
     setTimeout(() => {
       setShowConfetti(false)
       setShowBalloonPop(true)
-    }, 2000)
+    },3000)
 
     setTimeout(() => {
       setShowBalloonPop(false)
@@ -56,36 +56,38 @@ export default function BirthdayPage() {
     setSparkles(generatedSparkle);
   }, []);
 
-
-  // const photoFrames = [
-  //   { id: 1, name: "Teman Terbaik", placeholder: "/happy-friend-portrait.png" },
-  //   { id: 2, name: "Keluarga", placeholder: "/diverse-family-portrait.png" },
-  //   { id: 3, name: "Sahabat", placeholder: "/best-friend-portrait.png" },
-  //   { id: 4, name: "Orang Spesial", placeholder: "/special-person-portrait.png" },
-  //   { id: 5, name: "Kenangan", placeholder: "/memorable-moment-portrait.png" },
-  // ]
-
   const memoryImages = [
-    { id: 1, src: "/happy-childhood-memory.png" },
-    { id: 2, src: "/joyful-celebration-moment.png" },
-    { id: 3, src: "/fun-adventure-with-friends.png" },
-    { id: 4, src: "/loving-family-gathering.png" },
-    { id: 5, src: "/achievement-celebration.png" },
-    { id: 6, src: "/beautiful-vacation-memory.png" },
-    { id: 7, src: "/true-friendship-moment.png" },
-    { id: 8, src: "/romantic-special-moment.png" },
-    { id: 9, src: "/togetherness-and-unity.png" },
-    { id: 10, src: "/sweetest-smile-portrait.png" },
-    { id: 11, src: "/festive-party-celebration.png" },
-    { id: 12, src: "/dream-come-true-moment.png" },
-    { id: 13, src: "/laughter-and-joy.png" },
-    { id: 14, src: "/warm-loving-embrace.png" },
-    { id: 15, src: "/beautiful-sunset-together.png" },
-    { id: 16, src: "/favorite-food-enjoyment.png" },
-    { id: 17, src: "/placeholder.svg?height=200&width=200" },
-    { id: 18, src: "/placeholder.svg?height=200&width=200" },
-    { id: 19, src: "/placeholder.svg?height=200&width=200" },
-    { id: 20, src: "/placeholder.svg?height=200&width=200" },
+    { id: 1, type: "video", src: "/video1.mp4", thumbnail: "/placeholder-logo.png" },
+    { id: 2, type: "image", src: "/1.jpg" },
+    { id: 3, type: "image", src: "/2.jpg" },
+    { id: 4, type: "image", src: "/3.jpg" },
+    { id: 5, type: "image", src: "/4.jpg" },
+    { id: 6, type: "video", src: "/video2.mp4", thumbnail: "/placeholder-logo.png" },
+    { id: 7, type: "image", src: "/5.jpg" },
+    { id: 8, type: "image", src: "/6.jpg" },
+    { id: 9, type: "image", src: "/7.jpg" },
+    { id: 10, type: "image", src: "/8.jpg" },
+    { id: 11, type: "video", src: "/video3.mp4", thumbnail: "/placeholder-logo.png" },
+    { id: 12, type: "image", src: "/9.jpg" },
+    { id: 13, type: "image", src: "/10.jpg" },
+    { id: 14, type: "image", src: "/11.jpg" },
+    { id: 15, type: "image", src: "/12.jpg" },
+    { id: 16, type: "video", src: "/video7.mp4", thumbnail: "/placeholder-logo.png" }, 
+    { id: 17, type: "image", src: "/13.webp" },
+    { id: 18, type: "image", src: "/14.jpg" },
+    { id: 19, type: "image", src: "/15.jpg" },
+    { id: 20, type: "image", src: "/16.jpg" },
+    { id: 21, type: "video", src: "/video5.mp4", thumbnail: "/placeholder-logo.png" }, 
+    { id: 22, type: "image", src: "/17.jpg" },
+    { id: 23, type: "image", src: "/18.jpg" },
+    { id: 24, type: "image", src: "/19.jpeg" },
+    { id: 25, type: "image", src: "/20.jpg" },
+    { id: 26, type: "video", src: "/video6.mp4", thumbnail: "/placeholder-logo.png" }, 
+    { id: 27, type: "image", src: "/21.jpg" },
+    { id: 28, type: "image", src: "/22.jpg" },
+    { id: 29, type: "image", src: "/23.jpg" },
+    { id: 30, type: "image", src: "/24.jpg" },   
+
   ]
 
     if (showEnvelope) {
@@ -199,35 +201,35 @@ export default function BirthdayPage() {
       </div>
 
       {/* Floating Love */}
-<div className="absolute inset-0 pointer-events-none overflow-hidden">
-  {/* Heart 1 */}
-  <div
-    className={`heart absolute bottom-10 left-10 text-red-500 text-3xl animate-floatLove`}
-  >
-    ❤️
-  </div>
-  {/* Heart 2 */}
-  <div
-    className={`heart absolute bottom-20 right-20 text-pink-500 text-2xl animate-floatLove`}
-    style={{ animationDelay: "0.5s" }}
-  >
-    💖
-  </div>
-  {/* Heart 3 */}
-  <div
-    className={`heart absolute bottom-16 left-1/3 text-rose-400 text-4xl animate-floatLove`}
-    style={{ animationDelay: "1s" }}
-  >
-    💕
-  </div>
-  {/* Heart 4 */}
-  <div
-    className={`heart absolute bottom-24 right-1/4 text-red-400 text-3xl animate-floatLove`}
-    style={{ animationDelay: "1.5s" }}
-  >
-    💓
-  </div>
-</div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Heart 1 */}
+        <div
+          className={`heart absolute bottom-10 left-10 text-red-500 text-3xl animate-floatLove`}
+        >
+          ❤️
+        </div>
+        {/* Heart 2 */}
+        <div
+          className={`heart absolute bottom-20 right-20 text-pink-500 text-2xl animate-floatLove`}
+          style={{ animationDelay: "0.5s" }}
+        >
+          💖
+        </div>
+        {/* Heart 3 */}
+        <div
+          className={`heart absolute bottom-16 left-1/3 text-rose-400 text-4xl animate-floatLove`}
+          style={{ animationDelay: "1s" }}
+        >
+          💕
+        </div>
+        {/* Heart 4 */}
+        <div
+          className={`heart absolute bottom-24 right-1/4 text-red-400 text-3xl animate-floatLove`}
+          style={{ animationDelay: "1.5s" }}
+        >
+          💓
+        </div>
+      </div>
 
 
       {/* Confetti */}
@@ -252,36 +254,58 @@ export default function BirthdayPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-6xl font-bold text-primary mb-4 animate-pulse">🎉 Selamat Ulang Tahun! 🎉</h1>
-          <p className="text-xl text-muted-foreground">Semoga hari spesialmu penuh dengan kebahagiaan dan cinta</p>
+          <p className="text-xl text-muted-foreground">Semoga hari spesialmu penuh dengan kebahagiaan dan cinta ❤️</p>
         </div>
 
         {showMemoryGallery ? (
           <div className="memory-gallery animate-fade-in">
             <div className="text-center mb-8">
               <h2 className="text-5xl font-bold text-primary mb-4">📷 Galeri Kenangan Indah 📷</h2>
-              <p className="text-xl text-muted-foreground">20 momen berharga yang tak terlupakan</p>
+              <p className="text-xl text-muted-foreground">30 momen berharga yang tak terlupakan</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
-              {memoryImages.map((image, index) => (
-                <div
-                  key={image.id}
-                  className="memory-card group cursor-pointer animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="bg-card border-2 border-primary rounded-lg p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className="aspect-square bg-muted rounded overflow-hidden mb-2">
-                      <img
-                        src={image.src || "/placeholder.svg"}
-                        // alt={image.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    {/* <h3 className="text-xs font-semibold text-center text-card-foreground">{image.title}</h3> */}
+        {memoryImages.map((item, index) => (
+          <div
+            key={item.id}
+            className="memory-card group cursor-pointer animate-fade-in"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="bg-card border-2 border-primary rounded-lg p-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="aspect-square bg-muted rounded overflow-hidden mb-2 relative">
+                {item.type === "video" ? (
+                  <div className="relative w-full h-full">
+                    <video
+                      src={item.src}
+                      poster={item.thumbnail || "/placeholder-video.png"}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted={unmutedVideo !== item.id} // default muted, kecuali id ini yang dipilih
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      className="absolute bottom-2 right-2 bg-black/60 text-white rounded-full p-2 text-sm hover:bg-black/80 transition"
+                      onClick={() =>
+                        setUnmutedVideo(unmutedVideo === item.id ? null : item.id)
+                }
+              >
+                {unmutedVideo === item.id ? "🔇" : "🔊"}
+              </button>
+                    {/* )} */}
                   </div>
-                </div>
-              ))}
+                ) : (
+                  <img
+                    src={item.src || "/placeholder.svg"}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    alt="gallery"
+                  />
+                )}
+              </div>
             </div>
+          </div>
+        ))}
+      </div>
 
             <div className="text-center">
               <button
@@ -300,14 +324,6 @@ export default function BirthdayPage() {
                 {/* Cake */}
                 <div className="cake-container relative">
                   {/* Cake Base */}
-
-                  {/* GAMBAR KUE */}
-                  {/* <div className="cake-layer-2 w-40 h-14 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg mb-2 mx-auto shadow-lg"></div> */}
-                  {/* <div className="cake-layer-2 w-32 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg mb-2 mx-auto shadow-lg"></div>
-                  <div className="cake-layer-3 w-48 h-16 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg mb-2 shadow-lg"></div>
-                  <div className="cake-layer-1 w-32 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg mx-auto shadow-lg"></div> */}
-
-                  {/* GAMBAR KUE */}
                   <div className="cake-layer-2 w-24 h-10 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg mb-2 mx-auto shadow-lg"></div>  {/* Paling kecil (atas) */}
                   <div className="cake-layer-3 w-36 h-14 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg mb-2 mx-auto shadow-lg"></div> {/* Sedang (tengah) */}
                   <div className="cake-layer-1 w-48 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg mx-auto shadow-lg"></div>    {/* Paling besar (bawah) */}
@@ -347,50 +363,20 @@ export default function BirthdayPage() {
               </div>
             </div>
 
-            {/* Photo Frames Gallery */}
-            {/* <div className="mb-16">
-              <h2 className="text-4xl font-bold text-center text-primary mb-8">📸 Galeri Kenangan Spesial</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                {photoFrames.map((frame) => (
-                  <div
-                    key={frame.id}
-                    className="photo-frame group cursor-pointer"
-                    onClick={() => setSelectedFrame(selectedFrame === frame.id ? null : frame.id)}
-                  >
-                    <div className="bg-card border-4 border-primary rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <div className="aspect-square bg-muted rounded-lg mb-3 overflow-hidden">
-                        <img
-                          src={frame.placeholder || "/placeholder.svg"}
-                          alt={frame.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
-                      </div>
-                      <h3 className="text-center font-semibold text-card-foreground">{frame.name}</h3>
-                      {selectedFrame === frame.id && (
-                        <div className="mt-2 text-center">
-                          <span className="text-sm text-accent animate-pulse">✨ Frame Terpilih ✨</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
             {/* Birthday Wishes */}
             <div className="text-center bg-card rounded-2xl p-8 shadow-lg">
-              <h3 className="text-3xl font-bold text-primary mb-4">🎈 Ucapan Spesial Untukmu 🎈</h3>
+              <h3 className="text-3xl font-bold text-primary mb-4">🎈 Celamat Ulang Tahun Cintacuu 🎈</h3>
               <div className="space-y-4 text-lg text-card-foreground">
                 <p className="animate-fade-in">
                   "Semoga di hari ulang tahunmu ini, semua impian dan harapanmu menjadi kenyataan."
                 </p>
                 <p className="animate-fade-in" style={{ animationDelay: "0.5s" }}>
-                  "Setiap tahun yang berlalu membuatmu semakin bersinar dan menginspirasi."
+                  "Teyimakasih banyak udah maw ama aa teyus cayang cintacuu, aa slalu usahain buat cayang cintacu manis"
                 </p>
                 <p className="animate-fade-in" style={{ animationDelay: "1s" }}>
-                  "Terima kasih telah menjadi bagian istimewa dalam hidup kami."
+                  "Selalu berusaha jadi pribadi yang lebih baik nggeh ayang, dan semoga slalu ama aa teyus😊"
                 </p>
-                <div className="text-2xl font-bold text-accent mt-6 animate-bounce">🎂 Selamat Ulang Tahun! 🎂</div>
+                <div className="text-2xl font-bold text-accent mt-6 animate-bounce">🎂 Selamat Ulang Tahun Calon Istri Acu! 🎂</div>
               </div>
             </div>
           </>
@@ -398,7 +384,7 @@ export default function BirthdayPage() {
 
         {/* Footer */}
         <div className="text-center mt-12 text-muted-foreground">
-          <p>Dibuat dengan ❤️ untuk hari spesialmu</p>
+          <p>Dibuat dengan penuh ❤️ untuk hari spesial cayangcu manis</p>
         </div>
       </div>
 
