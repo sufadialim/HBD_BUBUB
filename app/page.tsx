@@ -59,7 +59,7 @@ export default function BirthdayPage() {
   const memoryImages = [
     { id: 1, type: "video", src: "public/video1.mp4", thumbnail: "public/placeholder-logo.png" },
     { id: 2, type: "image", src: "public/1.jpg" },
-    { id: 3, type: "image", src: "/2.jpg" },
+    { id: 3, type: "image", src: '/2.jpg' },
     { id: 4, type: "image", src: "/3.jpg" },
     { id: 5, type: "image", src: "/4.jpg" },
     { id: 6, type: "video", src: "/video2.mp4", thumbnail: "/placeholder-logo.png" },
