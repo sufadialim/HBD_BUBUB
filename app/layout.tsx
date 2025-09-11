@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "Website perayaan ulang tahun dengan animasi kue dan galeri foto",
   generator: "SFD LABS",
   icons: {
-    icon: "/placeholder.svg", // ambil dari folder public
+    icon: "/birthday-cake.png", // ambil dari folder public
   },
 };
 
